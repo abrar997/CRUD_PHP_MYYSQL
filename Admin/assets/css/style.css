@@ -1,0 +1,53 @@
+/* body style */
+body {
+  background-color: #eee;
+  font-family: "PT Serif", serif;
+}
+/* nav bar */
+.navbar {
+  background: rgb(165, 0, 77) !important;
+}
+.navbar a {
+  color: white;
+}
+.navbar a:hover {
+  color: rgb(238, 237, 237);
+}
+.navbar a:focus {
+  color: rgb(238, 237, 237);
+}
+.navbar .dropdown-menu a {
+  color: black !important;
+  text-align: center;
+  font-weight: bold;
+}
+.navbar .dropdown-menu {
+  background-color: #eee;
+  box-shadow: 2px 3px 3px #ccc;
+  color: black;
+}
+
+/* Index.php */
+.Admin-Index h1 {
+  font-family: "PT Serif", serif;
+  text-align: center;
+}
+.Admin-Index table {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+}
+.Admin-Index table th {
+  text-transform: capitalize;
+}
+.Admin-Index table .fa-xmark {
+  color: rgb(165, 0, 77);
+}
+.Admin-Index table .fa-pen-to-square {
+  color: green;
+}
+
+/* showuser.php */
+
+.DataUSer-show .card {
+  box-shadow: 2px 3px 3px #ccc;
+}
