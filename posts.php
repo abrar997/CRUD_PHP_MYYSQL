@@ -46,7 +46,7 @@ if (isset($_SESSION['adminEmail'])) {
                                         echo "<tr>";
                                         echo "<td class='text-secondary'>" . $post['id'] . "</td>";
                                         echo "<td scope='row'>" . $post['title'] . "</td>";
-                                        echo "<td>" . $post['body'] . "</td>";
+                                        echo "<td class='text-danger'>( " . $post['body'] . " )</td>";
                                         echo "<td>" . $post['user_id'] . "</td>";
                                         echo  "<td><a href='?page=deletepost&id=" . $post['id'] . "'> <i class='fa-solid fa-xmark me-4' title='delete post'></i> </a>
                             <a href='?page=showpost&id=" . $post['id'] . "'><i class='fa-solid fa-pen-to-square' title='edit post'></i> </a>

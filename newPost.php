@@ -21,12 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $error[] = "your post must be graete than 15 chars";
         }
 
-        if ($userid = "select....") {
-            $error[] = "select user_id ";
+        if (!isset($_POST['data-option'])) {
+            $error[] = "select user_id";
         }
+
+
         if (empty($error)) {
-            $createPost = $connect->prepare("INSERT INTO `posts` ( `title`, `body`, `user_id`) VALUES ( ?, ?,? ); ");
+            $createPost = $connect->prepare("INSERT INTO `posts` ( `title`, `body`, `user_id`) VALUES ( ?, ?,? )");
             $createPost->execute(array($titlePost, $bodyPost, $userid));
+
             header("Refresh:0,url=posts.php");
             exit();
         }
@@ -56,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Post body</label>
-                    <textarea type="text" class="form-control" id="exampleInputPassword1" name="body" > </textarea>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" name="body"> </textarea>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">select user id depending on id from user table </label><br />
@@ -65,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <?php $databse = $connect->prepare("SELECT * FROM users");
                         $databse->execute();
                         $datafetch = $databse->fetchAll();
-                        foreach ($datafetch as $userid) {
 
+                        foreach ($datafetch as $userid) {
                             echo " <option>" . $userid['id'] . "</option>";
                         }
                         ?>
