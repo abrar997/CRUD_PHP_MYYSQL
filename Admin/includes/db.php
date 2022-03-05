@@ -11,9 +11,7 @@ $option = array(
 try {
     $connect = new PDO($dbname, $username, $pass, $option);
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-
-catch (PDOException $e) {
+} catch (PDOException $e) {
     echo "error: erver failed to connect with database" . $e->getMessage();
 }
 

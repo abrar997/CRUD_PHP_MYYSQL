@@ -1,6 +1,6 @@
 
 <!-- footer -->
-<footer class=" footer bg-secondary fw-bold text-light text-center p-4 mb-0 text-capitalize" style="position:absolute;width:100%;bottom:0">
+<footer class=" footer bg-secondary fw-bold text-light text-center p-4 text-capitalize" >
   All rights reseved @ Abrar Muthana 2022
 </footer>
 

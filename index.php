@@ -14,7 +14,7 @@ $allusers = $usersquery->fetchAll();
 $numberusers = $usersquery->rowCount();
 
 // posts
-$Postsquery = $connect->prepare("SELECT * FROM post ");
+$Postsquery = $connect->prepare("SELECT * FROM posts ");
 $Postsquery->execute();
 $allPosts = $Postsquery->fetchAll();
 $numberPosts = $Postsquery->rowCount();
@@ -54,11 +54,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <div class="row">
 
             <!-- Users -->
-            <div class="col-lg-6 card border bg-light mt-3 shadow p-3 mb-5 bg-body rounded me-2">
+            <div class="col-lg-6 card border bg-light mt-3  mb-5 shadow p-3 mb-5 bg-body rounded me-2" style='margin-bottom:100px '>
                 <?php if (!empty($usernotFound)) {
                     echo $usernotFound;
                 } ?>
-                <div class="card-header fw-bold fs-5 ">Users <?php echo "<span class='badge bg-danger '> $numberusers </span>" ?> </div>
+                <div class="card-header fw-bold fs-5 mb-5 ">Users <?php echo "<span class='badge bg-danger '> $numberusers </span>" ?> </div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -77,7 +77,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 echo "<td scope='row'>" . $users['user_name'] . "</td>";
                                 echo "<td>" . $users['email'] . "</td>";
                                 echo  "<td>
-                                <a href='index.php?id=" . $users['id'] . "'> <i class='fa-solid fa-xmark me-4' title='delete user'></i> </a>
+                                <a href='index.php?id=" . $users['id'] . "'  class=' me-4'> <i class='fa-solid fa-xmark' title='delete user'></i> </a>
                                 <a href='showuser.php?id=" . $users['id'] . "'>  <i class='fa-solid fa-pen-to-square' title='edit user'></i> </a>
                                  </td>";
                                 echo "</tr>";
@@ -109,7 +109,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     </thead>
                     <tbody>
                         <?php
-                        if ($numberusers > 0) {
+                        if ($numberPosts > 0) {
                             foreach ($allPosts as $post) {
                                 echo "<tr>";
                                 echo "<td class='text-secondary'>" . $post['id'] . "</td>";
@@ -122,7 +122,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 echo "</tr>";
                             }
                         } else {
-                            echo  "<p class='bg-danget text-center'>  there is no posts  </p>";
+                            echo "<p class='alert alert-danger '>  there is no posts  </p>";
                         }
                         ?>
 

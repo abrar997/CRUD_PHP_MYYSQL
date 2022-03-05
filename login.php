@@ -17,10 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // check if user login to database this condition work with session ;;
     if ($numberUSer > 0) {
         $adminUser = $tryUser->fetch(); #to get single row
+        // $hashpassword = $adminUser['password'];
+        // if (password_verify($password, $hashpassword)) {
+
         // u  couldn't use other name
         $_SESSION['adminID'] = $adminUser['id'];
         $_SESSION['adminEmail'] = $adminUser['email'];
+        // }
     } else {
+
         $error = "<p class='text-danger'>
         there is no user like <span class=' border-bottom border-dark pb-1'>( $email ) </span>,please try again </p>";
     }

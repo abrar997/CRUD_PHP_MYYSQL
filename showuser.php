@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 include "./init.php";
-if (isset($_SESSION['adminEmail'])) {
+// if (isset($_SESSION['adminEmail'])) {
     include './Admin/includes/templates/navbar.php';
 
     // Query to fetch all data of one user  who login by click on edit button in index.php 
@@ -24,7 +24,7 @@ if (isset($_SESSION['adminEmail'])) {
 
         <div class="container">
             <form class="form  w-50 m-auto mt-5 mb-5 border  shadow p-3 mb-5 bg-body rounded" action="updateUser.php" method="post">
-                
+
                 <input type="hidden" value="<?php echo $userdata['id'] ?>" class="form-control" id="exampleInputPassword1" name="id">
                 <h3 class="text-center bg-primary text-light p-2">update data </h3>
                 <div class="mb-3">
@@ -36,19 +36,22 @@ if (isset($_SESSION['adminEmail'])) {
                     <input type="email" value="<?php echo $userdata['email'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="update data" name="update"/>
+                <input type="submit" class="btn btn-primary" value="update data" name="update" />
             </form>
-        </div>
     </section>
 
-<?php
+    <?php
 
+    ?>
+    </div>
+
+<?php
     include './Admin/includes/templates/footer.php';
-} else {
-    echo "<h3 clas='alert alert-danger text-center fs-5 fw-bold' style='text-align:center;color:red;margin-top:32px'>you can not brows this page directly <br>  during 5 seconds you will back to your road ... </h3>";
-    header("Refresh:5,url=login.php");
-    exit();
-}
+// } else {
+//     echo "<h3 clas='alert alert-danger text-center fs-5 fw-bold' style='text-align:center;color:red;margin-top:32px'>you can not brows this page directly <br>  during 5 seconds you will back to your road ... </h3>";
+//     header("Refresh:5,url=login.php");
+//     exit();
+// }
 
 
 

@@ -2,6 +2,7 @@
 body {
   background-color: #eee;
   font-family: "PT Serif", serif;
+  font-weight: 600;
 }
 /* nav bar */
 .navbar {
@@ -50,4 +51,46 @@ body {
 
 .DataUSer-show .card {
   box-shadow: 2px 3px 3px #ccc;
+}
+
+/* delete icons */
+.fa-xmark {
+  color: red;
+}
+/* update icons */
+.fa-pen-to-square {
+  color: green;
+}
+
+/* user btn */
+.Admin-Index-user .btn-new-acount {
+  float: right;
+}
+
+/* all a in website */
+a {
+  text-decoration: none;
+}
+
+/* post page */
+
+.create-post h3 {
+  background-color: rgb(165, 0, 77);
+
+}
+.data-select:focus {
+  border: 1px solid rgb(165, 0, 77);
+}
+
+.data-select {
+  font-size: 20px;
+  width: 200px;
+  background-color: #eee;
+  color: rgb(165, 0, 77);
+  border: 1px solid rgb(165, 0, 77);
+}
+
+.data-select option {
+  background-color: white;
+  color: black;
 }

@@ -10,7 +10,10 @@
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="user.php">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="posts.php">Post</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle " href="#" id=" avbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
