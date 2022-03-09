@@ -6,24 +6,42 @@ session_start([]);
 include "./init.php";
 
 
+if (isset($_SESSION['adminID'])) {
+    header("Refresh:0,url=index.php");
+    exit();
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
+
+
+    //    $hashpassword=password_hash($password,PASSWORD_DEFAULT);
     // declare variable and connect with database 
-    $tryUser = $connect->prepare("SELECT * FROM users WHERE email=? AND `password`=?  "); #search email in database
-    $tryUser->execute(array($email, $password));
+    $tryUser = $connect->prepare("SELECT * FROM users WHERE email=?"); #search email in database
+    $tryUser->execute(array($email));
     $numberUSer = $tryUser->rowCount();
 
     // check if user login to database this condition work with session ;;
     if ($numberUSer > 0) {
-        $adminUser = $tryUser->fetch(); #to get single row
-        // $hashpassword = $adminUser['password'];
-        // if (password_verify($password, $hashpassword)) {
+        $account = $tryUser->fetch(); #to get single row
+        $hashpassword = $account['password']; #from DB
+        if (password_verify($password, $hashpassword)) {
+         if($account['type']==="admin"){
 
-        // u  couldn't use other name
-        $_SESSION['adminID'] = $adminUser['id'];
-        $_SESSION['adminEmail'] = $adminUser['email'];
-        // }
+             
+             $_SESSION['adminID'] = $account['id'];
+             $_SESSION['adminEmail'] = $account['email'];
+             header("Refresh:0,url=index.php");
+             exit();
+            }else{
+                $_SESSION['userID'] = $account['id'];
+                $_SESSION['userEmail'] = $account['email'];
+                header("Refresh:0,url=home.php");
+                exit();
+            }
+        }
     } else {
 
         $error = "<p class='text-danger'>
@@ -31,10 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 
-if (isset($_SESSION['adminID'])) {
-    header("Refresh:0,url=index.php");
-    exit();
-}
 ?>
 
 <!-- Login  -->

@@ -13,7 +13,8 @@
             $emailvali = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $passwordvali = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
             $cpassword = filter_var($_POST['confpassword'], FILTER_SANITIZE_STRING);
-            // $hashpass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $hashpass = password_hash($passwordvali, PASSWORD_DEFAULT);
+
 
 
             // Validation :: || >><< 
@@ -36,11 +37,10 @@
 
             if (empty($formsError)) {
                 $staInsertAccount = $connect->prepare(" INSERT INTO users(`user_name`,email,`password`) VALUES (?,?,?)");
-                // $staInsertAccount->execute(array($usernamevali, $emailvali, $hashpass));
-                $staInsertAccount->execute(array(
-                    $usernamevali, $emailvali, $passwordvali
-                ));
-                // echo $hashpass;
+                $staInsertAccount->execute(array($usernamevali, $emailvali, $hashpass));
+                // $staInsertAccount->execute(array(
+                //     $usernamevali, $emailvali, $passwordvali
+                // ));
                 header("Refresh:0,url=login.php");
                 exit();
                 // }
@@ -69,7 +69,7 @@
                  <label for="exampleInputEmail1" class="form-label mt-4">user name</label>
                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="user name" required="true">
              </div>
-             
+
              <div class="mb-3">
                  <label for="exampleInputEmail1" class="form-label">Email address</label>
                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email" required="true">

@@ -11,8 +11,6 @@ include './init.php';
 
 if (isset($_SESSION['adminEmail'])) {
     include './Admin/includes/templates/navbar.php';
-
-
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     } else {

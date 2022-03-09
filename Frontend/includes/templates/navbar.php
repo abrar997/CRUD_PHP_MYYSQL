@@ -7,21 +7,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold fs-5">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="user.php">Users</a>
+                    <a class="nav-link" href="">about</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="posts.php">Post</a>
+                    <a class="nav-link" href="">contact</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle " href="#" id=" avbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php if (isset($_SESSION['adminEmail'])) {
-                            echo  $_SESSION['adminEmail'];
+                        <?php if (isset($_SESSION['userEmail'])) {
+                            echo $_SESSION['userEmail'];
                         } else {
-                            echo " no user";
-                            // header("Refresh:2,url=login.php");
+                            echo "no user";
                         }
                         ?>
                     </a>
@@ -32,6 +31,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
+                        <!-- onclick="confirm('Are u sure to logout?') -->
                         <li><a class="dropdown-item" href="logout.php">logout</a></li>
                     </ul>
                 </li>
