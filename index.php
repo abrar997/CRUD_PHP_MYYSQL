@@ -41,7 +41,6 @@ if (isset($_SESSION['adminID'])) {
         $stat = $connect->prepare("SELECT * FROM users WHERE id=? ");
         $stat->execute(array($userid));
         $row = $stat->rowCount();
-
         if ($row > 0) {
             // means user exist in data base
             // sql to delete when u click

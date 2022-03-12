@@ -1,20 +1,188 @@
 body {
-  background-color: #eee !important;
+  overflow: scroll;
+  font-family: "Nanum Myeongjo", serif;
+  font-family: "PT Serif", serif;
+}
+:root {
+  --color: #fb607f;
+  --mainc: white;
+}
+
+/* sccrollbar */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: white !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: gray;
 }
 
 .navbar {
-  background-color: rgb(22, 22, 122) !important;
+  background-color: white !important;
+  font-family: "Nanum Myeongjo", serif;
+  font-family: "PT Serif", serif;
+  color: black;
 }
 
-footer {
+.navbar li a:focus {
+  color: black;
+  border-bottom: 1px solid var(--color);
+}
+.navbar li a:hover {
+  color: var(--color);
+}
+.navbar li a {
+  color: black;
+  margin: auto;
+}
+
+.navbar i {
+  padding: 5px;
+  color: var(--color);
+  font-size: 20px;
+}
+/* -------------------------------------------------------------------  */
+/* home carousel */
+.home span {
+  text-align: center !important;
+}
+
+.home .card-img img {
+  width: 95%;
+  object-fit: cover;
+  height: 200px;
+  margin: auto;
+}
+
+.home .carouselExampleSlidesOnly img {
+  position: relative;
+  height: 700px;
+}
+
+.home .carousel-text {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(201, 168, 60);
+  top: 200px;
+  left: 170px;
 }
 
+.home .carousel-text .btn-carousel {
+  background-color: var(--color);
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px 10px 20px;
+}
 
-.home span{text-align: center !important;}
+/* -------------------------------------------------------------------  */
+/* home why */
+.home-why {
+  height: 250px;
+}
+.home-why .card .card-body {
+  margin-top: -20px !important;
+}
+.home-why .card {
+  border: none;
+}
+/* -------------------------------------------------------------------  */
 
+/* home-categ */
 
+.home-categ .btn-categ {
+  background-color: var(--color);
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px 10px 20px;
+}
 
+/* -------------------------------------------------------------------  */
+/* About */
+.About {
+  margin-top: 100px;
+}
+
+.About h1 {
+  letter-spacing: 2px;
+  line-height: 39px;
+}
+
+/* -------------------------------------------------------------------  */
+/*  */
+.dry-flower {
+  position: relative;
+  height: 1000px;
+}
+
+.dry-flower-image i {
+  position: absolute;
+  background-color: #fb607f;
+  border-radius: 50%;
+  padding: 20px;
+  color: white;
+  font-size: 35px;
+  top: 300px;
+  left: 460px;
+}
+
+.dry-flower-text {
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.dry-flower .dry-flower-btn {
+  background-color: var(--color);
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px 10px 20px;
+}
+
+/* -------------------------------------------------------------------  */
+footer {
+  background-color: transparent !important;
+  border-top: none;
+}
+
+footer h3 {
+  color: var(--color);
+}
+footer .card {
+  border: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+footer a {
+  text-decoration: none;
+  color: gray;
+}
+footer ul {
+  list-style-type: none;
+  color: gray;
+}
+
+footer .container .row .card-d-flex {
+  display: flex;
+}
+
+.home-post-fromCateg .fa-solid {
+  background: #fb607f;
+  border-radius: 50%;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}

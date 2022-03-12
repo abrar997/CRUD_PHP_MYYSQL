@@ -10,6 +10,10 @@ if (isset($_SESSION['adminID'])) {
     header("Refresh:0,url=index.php");
     exit();
 }
+elseif (isset($_SESSION['userEmail'])) {
+    header("Refresh:0,url=home.php");
+    exit();
+}
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {

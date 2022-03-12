@@ -13,8 +13,8 @@
     <!-- google font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
-    <!-- sweet alert -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <!-- css -->
     <link rel="stylesheet" href="Frontend/assets/css/style.css" />
 </head>
 

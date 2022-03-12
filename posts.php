@@ -6,7 +6,7 @@ if (isset($_SESSION['adminEmail'])) {
     include './Admin/includes/templates/navbar.php';
 
     $statpost =
-        $connect->prepare("SELECT posts.*,users.user_name AS `name`  FROM posts 
+    $connect->prepare("SELECT posts.*,users.user_name AS `name`  FROM posts 
     INNER JOIN users ON posts.user_id = users.id ");
     $statpost->execute();
     $postsdata = $statpost->fetchAll();
@@ -42,6 +42,7 @@ if (isset($_SESSION['adminEmail'])) {
                                         <th scope="col">body</th>
                                         <th scope="col">name</th>
                                         <th scope="col">status</th>
+                                        <th scope="col">categories</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -62,9 +63,10 @@ if (isset($_SESSION['adminEmail'])) {
                                             if ($post['status'] === "published") {
                                                 echo "<span class='badge bg-success'>published </span>";
                                             } else {
-
+                                                
                                                 echo "<span class='badge  bg-danger'>hidden </span>";
                                             }
+                                            echo "<td scope='row'>" . $post['categ_id'] . "</td>";
                                             echo "</td>";
                                             echo  "<td><a href='?page=deletepost&id=" . $post['id'] . "'> <i class='fa-solid fa-xmark ms-2 me-2' title='delete post'></i> </a>
                                         <a href='?page=showpost&id=" . $post['id'] . "'><i class='fa-solid fa-pen-to-square' title='edit post'></i> </a>

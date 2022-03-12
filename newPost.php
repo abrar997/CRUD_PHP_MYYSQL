@@ -10,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $titlePost = filter_var($_POST['title-post'], FILTER_SANITIZE_STRING);
         $bodyPost = filter_var($_POST['body'], FILTER_SANITIZE_STRING);
         $userid = $_POST['data-option'];
+       
+        $categid = $_POST['categ-option'];
+       
         $status = filter_var($_POST['status'], FILTER_SANITIZE_STRING);
 
         // image //need name type size tmp-name 
@@ -39,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
 
         if (empty($error)) {
-            $createPost = $connect->prepare("INSERT INTO `posts` ( `title`, `body`, `user_id`,`status`,`image`) VALUES ( ?,?, ?,?,? )");
-            $createPost->execute(array($titlePost, $bodyPost, $userid, $status, $imgbyaddrandomnumberbefornametosaveitindb));
+            $createPost = $connect->prepare("INSERT INTO `posts` ( `title`, `body`, `user_id`,`categ_id`,`status`,`image`) VALUES ( ?,?, ?,?,?,? )");
+            $createPost->execute(array($titlePost, $bodyPost, $userid, $categid, $status, $imgbyaddrandomnumberbefornametosaveitindb));
             header("Refresh:0,url=posts.php");
             exit();
         }
@@ -69,6 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <label for="exampleInputEmail1" class="form-label">Post title</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='title-post' placeholder="title">
                 </div>
+
+
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Post body</label>
                     <textarea type="text" class="form-control" id="exampleInputPassword1" name="body"> </textarea>
@@ -89,6 +94,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         ?>
                     </select>
                 </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">select categ_id </label><br />
+                    <select name="categ-option" class="data-select" required> start with
+                        <?php $databse = $connect->prepare("SELECT * FROM categories WHERE status='visible' ");
+                        $databse->execute();
+                        $datafetch = $databse->fetchAll();
+
+                        foreach ($datafetch as $categ) {
+                            echo " <option value=" . $categ['id'] . " " . $categ['title'] . ">" . $categ['id'] . "_ " . $categ['title'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">status </label><br />
                     <select class="data-select" name="status">
@@ -104,11 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
 
 
-
-
                 <input type="submit" class="btn btn-primary" value=" send  post" name='post-btn' />
-
-
             </form>
         </div>
 

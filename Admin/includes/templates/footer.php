@@ -1,6 +1,6 @@
 
 <!-- footer -->
-<footer class=" footer bg-secondary fw-bold text-light text-center p-4 text-capitalize" >
+<footer class=" footer  fw-bold  text-center p-2 text-capitalize" >
   All rights reseved @ Abrar Muthana 2022
 </footer>
 

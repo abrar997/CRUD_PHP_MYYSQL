@@ -2,10 +2,8 @@
 <!-- اذا استخدمنة get اعتمد على url  -->
 
 <?php
-
 ob_start();
 session_start();
-
 include './init.php';
 
 
@@ -60,8 +58,8 @@ if (isset($_SESSION['adminEmail'])) {
                                         echo "<td scope='row'>" . $users['user_name'] . "</td>";
                                         echo "<td>" . $users['email'] . "</td>";
                                         echo  "<td>
-                                <a href='?page=deleteUser&id=" . $users['id'] . "' class=' me-4'> <i class='fa-solid fa-xmark' title='delete user'></i> </a>
-                                <a href='?page=editUer&id=" . $users['id'] . "'>  <i class='fa-solid fa-pen-to-square' title='edit user'></i> </a>
+                                        <a href='?page=deleteUser&id=" . $users['id'] . "' class=' me-4'> <i class='fa-solid fa-xmark' title='delete user'></i> </a>
+                                        <a href='?page=editUer&id=" . $users['id'] . "'>  <i class='fa-solid fa-pen-to-square' title='edit user'></i> </a>
                                  </td>";
                                         echo "</tr>";
                                     }
